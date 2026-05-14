@@ -70,8 +70,8 @@ a:hover { color: var(--accent-hover); }
 /* ---- Classic Calculator ---- */
 .calc-wrapper { max-width: 340px; }
 .calc-display-area { background: var(--result-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 8px; text-align: right; min-height: 80px; display: flex; flex-direction: column; justify-content: flex-end; }
-.calc-expr { font-family: var(--mono); font-size: 13px; color: var(--text-muted); min-height: 18px; word-break: break-all; }
-.calc-result-display { font-family: var(--mono); font-size: 2.2rem; font-weight: 700; color: var(--text); word-break: break-all; }
+.calc-expr { font-family: var(--font); font-size: 13px; color: var(--text-muted); min-height: 18px; word-break: break-all; }
+.calc-result-display { font-family: var(--font); font-size: 2.2rem; font-weight: 800; color: var(--text); word-break: break-all; }
 .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
 .calc-btn { padding: 15px 8px; font-size: 15px; font-family: var(--font); border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-white); cursor: pointer; font-weight: 500; color: var(--text); line-height: 1; transition: background 0.08s; }
 .calc-btn:hover { background: var(--bg); }
