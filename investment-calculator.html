@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free investment calculator with compound growth chart. Model S&P 500, NASDAQ, MSCI World, and custom returns. Shows portfolio growth over time.">
+  <title>Investment Calculator — Compound Interest & Growth — CalcAnything</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Calc<span class="logo-accent">Anything</span></a>
+    <nav class="header-nav" aria-label="Site navigation"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Calculators</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Calculator navigation">
+      <span class="sidebar-heading">Calculators</span>
+      <ul>
+        <li><a href="basic-calculator.html">Basic Calculator</a></li>
+        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+        <li><a href="age-calculator.html">Age Calculator</a></li>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="tip-calculator.html">Tip Calculator</a></li>
+        <li><a href="unit-converter.html">Unit Converter</a></li>
+        <li><a href="date-calculator.html">Date Calculator</a></li>
+        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+        <li><a href="discount-calculator.html">Discount Calculator</a></li>
+        <li><a href="investment-calculator.html">Investment Calculator</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="tool-header">
+      <h1>Investment Calculator</h1>
+      <p class="tool-tagline">Compound growth projections with real-world market benchmarks and an interactive chart.</p>
+    </div>
+
+    <section class="tool-section" aria-label="Investment calculator">
+      <!-- Inputs -->
+      <div class="tool-controls">
+        <div class="control-group">
+          <label for="inv-principal">Initial investment ($)</label>
+          <input type="number" id="inv-principal" value="5000" min="0" step="100">
+        </div>
+        <div class="control-group">
+          <label for="inv-monthly">Monthly contribution ($)</label>
+          <input type="number" id="inv-monthly" value="200" min="0" step="50">
+        </div>
+        <div class="control-group">
+          <label for="inv-years">Time period (years)</label>
+          <input type="number" id="inv-years" value="20" min="1" max="60">
+        </div>
+        <div class="control-group">
+          <label for="inv-preset">Market / benchmark</label>
+          <select id="inv-preset">
+            <option value="sp500">S&amp;P 500 — ~10%/yr (US)</option>
+            <option value="nasdaq">NASDAQ-100 — ~13.5%/yr</option>
+            <option value="world">MSCI World ETF — ~8%/yr (Global)</option>
+            <option value="ustotal">US Total Market — ~10.5%/yr</option>
+            <option value="em">Emerging Markets ETF — ~7%/yr</option>
+            <option value="moderate">Moderate 60/40 Mix — ~7%/yr</option>
+            <option value="conservative">Conservative (Bonds) — ~4.5%/yr</option>
+            <option value="custom">Custom rate…</option>
+          </select>
+        </div>
+        <div class="control-group" id="custom-rate-group" style="display:none;">
+          <label for="inv-custom-rate">Custom annual return (%)</label>
+          <input type="number" id="inv-custom-rate" value="8" min="0" max="50" step="0.1" style="width:100px;">
+        </div>
+      </div>
+
+      <!-- Quick preset chips -->
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+        <span style="font-size:12px;color:var(--text-muted);align-self:center;">Quick pick:</span>
+        <button class="btn btn-secondary btn-sm" data-preset-key="sp500">S&amp;P 500</button>
+        <button class="btn btn-secondary btn-sm" data-preset-key="nasdaq">NASDAQ-100</button>
+        <button class="btn btn-secondary btn-sm" data-preset-key="world">MSCI World</button>
+        <button class="btn btn-secondary btn-sm" data-preset-key="em">Emerg. Markets</button>
+      </div>
+
+      <!-- Advanced options -->
+      <button class="advanced-toggle" type="button" aria-expanded="false" aria-controls="adv-panel">
+        Advanced options <span class="adv-arrow" aria-hidden="true">▾</span>
+      </button>
+      <div class="advanced-panel" id="adv-panel" hidden>
+        <div class="control-group">
+          <label for="inv-expense">Annual expense ratio (%)</label>
+          <input type="number" id="inv-expense" value="0.07" min="0" max="5" step="0.01" style="width:100px;">
+          <span style="font-size:12px;color:var(--text-muted);">Typical ETF: 0.03–0.20%</span>
+        </div>
+        <div class="check-group" style="align-self:flex-end;">
+          <label class="check-label">
+            <input type="checkbox" id="inv-inflation"> Adjust for inflation (3%/yr)
+          </label>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" id="calc-btn" style="margin-top:16px;">Calculate</button>
+
+      <!-- Result section -->
+      <div id="result-section" hidden>
+        <div style="border-top:1px solid var(--border);margin-top:20px;padding-top:20px;">
+          <!-- Summary stats -->
+          <div class="invest-summary-grid">
+            <div class="invest-stat">
+              <div class="invest-stat-val" id="stat-final">—</div>
+              <div class="invest-stat-label">Final Portfolio Value</div>
+            </div>
+            <div class="invest-stat">
+              <div class="invest-stat-val" id="stat-contrib" style="color:var(--text-muted);font-size:1.1rem;">—</div>
+              <div class="invest-stat-label">Total Invested</div>
+            </div>
+            <div class="invest-stat">
+              <div class="invest-stat-val" id="stat-gain" style="color:#1a7a46;font-size:1rem;">—</div>
+              <div class="invest-stat-label">Investment Returns</div>
+            </div>
+            <div class="invest-stat" id="stat-real-row" style="display:none;">
+              <div class="invest-stat-val" id="stat-real" style="color:var(--text-muted);font-size:1rem;">—</div>
+              <div class="invest-stat-label">Inflation-Adjusted</div>
+            </div>
+          </div>
+
+          <!-- Chart -->
+          <div class="invest-chart-wrap">
+            <canvas id="invest-chart" aria-label="Investment growth chart"></canvas>
+          </div>
+
+          <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">
+            Rates shown are historical averages for reference only. Past performance does not guarantee future results. This tool is for educational purposes, not financial advice.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+
+    <div class="content-sections">
+      <section class="content-block">
+        <h2>About this calculator</h2>
+        <p>This tool projects how an investment could grow over time using compound interest, based on historical average annual returns for major market benchmarks. Enter your initial investment, ongoing monthly contributions, and time horizon, then choose a market benchmark or enter a custom rate.</p>
+        <p>The chart shows your portfolio value versus the amount you actually invested, making it easy to see how much of the final value comes from market returns versus your own contributions.</p>
+      </section>
+
+      <section class="content-block">
+        <h2>Market benchmarks explained</h2>
+        <ul>
+          <li><strong>S&P 500</strong> — 500 largest US companies. Historical nominal average: ~10%/yr. Most common benchmark for long-term US equity investing.</li>
+          <li><strong>NASDAQ-100</strong> — Top 100 non-financial NASDAQ stocks, heavily tech-weighted. Historical average ~13.5%/yr with higher volatility.</li>
+          <li><strong>MSCI World ETF</strong> — ~1,500 companies across 23 developed countries. More globally diversified. ~8%/yr historical average.</li>
+          <li><strong>US Total Market</strong> — Entire US stock market including small and mid caps. ~10.5%/yr historical average.</li>
+          <li><strong>Emerging Markets</strong> — Companies in developing economies (China, India, Brazil, etc.). Higher potential return and risk. ~7%/yr long-term average.</li>
+          <li><strong>Moderate 60/40 Mix</strong> — 60% stocks, 40% bonds. Classic balanced portfolio. ~7%/yr historical average with lower volatility.</li>
+          <li><strong>Conservative (Bonds)</strong> — US bond index. Lower risk and return. ~4.5%/yr historical average.</li>
+        </ul>
+      </section>
+
+      <!-- AdSense Unit 2 -->
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+
+      <section class="content-block">
+        <h2>How compound interest works</h2>
+        <p>Compound interest means your returns generate their own returns over time. A $10,000 investment at 10%/yr becomes $11,000 after one year — but in year two, you earn 10% on $11,000 (not just the original $10,000). Over decades, this compounding effect becomes the dominant driver of portfolio growth.</p>
+        <p>Adding regular monthly contributions accelerates this dramatically. Even modest monthly amounts, started early, can outperform large lump-sum investments started late.</p>
+      </section>
+
+      <section class="content-block">
+        <h2>Common uses</h2>
+        <ul>
+          <li>Estimating retirement savings from a regular investment plan</li>
+          <li>Comparing different market allocations over the same time horizon</li>
+          <li>Understanding the impact of fees on long-term returns</li>
+          <li>Seeing how starting earlier vs later affects the final result</li>
+          <li>Teaching the concept of compound growth visually</li>
+        </ul>
+      </section>
+
+      <section class="content-block faq-section">
+        <h2>FAQ</h2>
+        <dl>
+          <dt>Are the returns guaranteed?</dt>
+          <dd>No. Historical averages are informational only. Markets can have significant short-term losses. Long-term historical averages are reasonable planning assumptions but not promises.</dd>
+
+          <dt>What is the expense ratio?</dt>
+          <dd>A fee charged by ETFs and mutual funds as a percentage of assets per year. A 0.07% expense ratio on $100,000 costs $70/yr. This is deducted from the net return. Major index ETFs (VOO, VTI, etc.) typically range from 0.03–0.20%.</dd>
+
+          <dt>What does inflation adjustment mean?</dt>
+          <dd>Inflation erodes purchasing power over time. The inflation-adjusted value shows what your final portfolio would be worth in today's dollars at a 3% inflation rate. A portfolio worth $1M in 30 years might only have the purchasing power of ~$412K today.</dd>
+
+          <dt>Are dividends included in the return rates?</dt>
+          <dd>The historical return rates shown include dividend reinvestment (total return), not just price appreciation. This is the standard way to measure long-term market performance.</dd>
+
+          <dt>Is this financial advice?</dt>
+          <dd>No. This is a planning and educational tool. For actual investment decisions, consult a licensed financial advisor who can account for your specific situation, tax status, and risk tolerance.</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 CalcAnything</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Chart.js from CDN — lightweight, no build step needed -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/tools/investment.js"></script>
+</body>
+</html>

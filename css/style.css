@@ -1,43 +1,40 @@
 /* ============================================================
-   CalcAnything — Shared Stylesheet
+   CalcAnything — Stylesheet
+   Font: Plus Jakarta Sans
    ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:           #f6f9fd;
-  --bg-sidebar:   #edf3f9;
+  --bg:           #f5f8fd;
+  --bg-sidebar:   #dceaf7;
   --bg-white:     #ffffff;
-  --text:         #1e1e1e;
-  --text-muted:   #5c5c5c;
-  --border:       #c8d8eb;
+  --text:         #101828;
+  --text-muted:   #506070;
+  --border:       #c4d6ea;
   --accent:       #1a56a8;
   --accent-hover: #134490;
   --accent-light: #e8f0fb;
+  --result-bg:    #e8f0fb;
+  --header-bg:    #edf3ff;
   --radius:       4px;
   --sidebar-w:    224px;
   --header-h:     50px;
-  --font:         system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --mono:         "Courier New", Courier, monospace;
+  --font:         'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --mono:         'Courier New', Courier, monospace;
 }
 
 html { scroll-behavior: smooth; }
-
-body {
-  font-family: var(--font);
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--text);
-  background: var(--bg);
-}
-
+body { font-family: var(--font); font-size: 15px; line-height: 1.65; color: var(--text); background: var(--bg); }
 a { color: var(--accent); }
 a:hover { color: var(--accent-hover); }
 
 /* ---- Header ---- */
-.site-header { position: sticky; top: 0; z-index: 200; height: var(--header-h); background: var(--bg-white); border-bottom: 1px solid var(--border); }
+.site-header { position: sticky; top: 0; z-index: 200; height: var(--header-h); background: var(--header-bg); border-bottom: 1px solid var(--border); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; padding: 0 20px; max-width: 1280px; margin: 0 auto; }
-.logo { font-size: 16px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.2px; white-space: nowrap; }
+.logo { font-size: 16px; font-weight: 800; color: var(--text); text-decoration: none; letter-spacing: -0.3px; white-space: nowrap; }
 .logo .logo-accent { color: var(--accent); }
 .header-nav { display: flex; gap: 20px; }
 .header-nav a { font-size: 13.5px; color: var(--text-muted); text-decoration: none; }
@@ -53,18 +50,18 @@ a:hover { color: var(--accent-hover); }
 /* ---- Sidebar ---- */
 .sidebar { width: var(--sidebar-w); min-width: var(--sidebar-w); background: var(--bg-sidebar); border-right: 1px solid var(--border); position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); overflow-y: auto; flex-shrink: 0; }
 .sidebar-nav { padding: 16px 0 24px; }
-.sidebar-heading { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.9px; text-transform: uppercase; color: var(--text-muted); padding: 0 16px 8px; }
+.sidebar-heading { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 0 16px 8px; }
 .sidebar-nav ul { list-style: none; }
 .sidebar-nav ul li a { display: block; padding: 7px 16px 7px 14px; border-left: 3px solid transparent; font-size: 13.5px; color: var(--text); text-decoration: none; line-height: 1.4; }
-.sidebar-nav ul li a:hover { background: var(--accent-light); color: var(--accent); }
-.sidebar-nav ul li a.active { border-left-color: var(--accent); background: var(--accent-light); color: var(--accent); font-weight: 600; }
+.sidebar-nav ul li a:hover { background: rgba(26,86,168,0.1); color: var(--accent); }
+.sidebar-nav ul li a.active { border-left-color: var(--accent); background: rgba(26,86,168,0.1); color: var(--accent); font-weight: 600; }
 
 /* ---- Main content ---- */
-.main-content { flex: 1; min-width: 0; padding: 28px 32px 48px; max-width: 860px; }
+.main-content { flex: 1; min-width: 0; padding: 28px 32px 48px; max-width: 880px; }
 
 /* ---- Tool header ---- */
 .tool-header { margin-bottom: 18px; }
-.tool-header h1 { font-size: 1.4rem; font-weight: 700; line-height: 1.25; margin-bottom: 4px; }
+.tool-header h1 { font-size: 1.45rem; font-weight: 800; line-height: 1.25; margin-bottom: 4px; letter-spacing: -0.3px; }
 .tool-tagline { font-size: 14px; color: var(--text-muted); }
 
 /* ---- Tool section ---- */
@@ -72,34 +69,11 @@ a:hover { color: var(--accent-hover); }
 
 /* ---- Classic Calculator ---- */
 .calc-wrapper { max-width: 340px; }
-.calc-display-area {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 12px 14px;
-  margin-bottom: 8px;
-  text-align: right;
-  min-height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
+.calc-display-area { background: var(--result-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 8px; text-align: right; min-height: 80px; display: flex; flex-direction: column; justify-content: flex-end; }
 .calc-expr { font-family: var(--mono); font-size: 13px; color: var(--text-muted); min-height: 18px; word-break: break-all; }
 .calc-result-display { font-family: var(--mono); font-size: 2.2rem; font-weight: 700; color: var(--text); word-break: break-all; }
 .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
-.calc-btn {
-  padding: 15px 8px;
-  font-size: 15px;
-  font-family: var(--font);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg-white);
-  cursor: pointer;
-  font-weight: 500;
-  color: var(--text);
-  line-height: 1;
-  transition: background 0.08s;
-}
+.calc-btn { padding: 15px 8px; font-size: 15px; font-family: var(--font); border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-white); cursor: pointer; font-weight: 500; color: var(--text); line-height: 1; transition: background 0.08s; }
 .calc-btn:hover { background: var(--bg); }
 .calc-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .calc-btn.op { background: var(--accent-light); color: var(--accent); font-weight: 600; }
@@ -111,60 +85,48 @@ a:hover { color: var(--accent-hover); }
 .calc-btn.span2 { grid-column: span 2; }
 .calc-btn.span3 { grid-column: span 3; }
 
-/* ---- Scientific calculator ---- */
+/* ---- Scientific ---- */
 .sci-wrapper { max-width: 480px; }
 .sci-grid { grid-template-columns: repeat(5, 1fr); }
-.calc-btn.fn { font-size: 11.5px; background: #eaf0fa; color: #1a4080; }
+.calc-btn.fn { font-size: 11.5px; background: #e8f0fb; color: #1a4080; }
 .calc-btn.fn:hover { background: #1a4080; color: white; }
-.calc-btn.const { font-size: 12px; }
 .calc-mode-toggle { display: flex; gap: 8px; margin-bottom: 10px; }
 .calc-mode-toggle button { padding: 4px 12px; font-size: 12.5px; font-family: var(--font); border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-white); cursor: pointer; }
 .calc-mode-toggle button.active { background: var(--accent); color: white; border-color: var(--accent); }
 
-/* ---- Form-based calc result card ---- */
-.calc-result-card {
-  background: var(--accent-light);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 16px 20px;
-  margin-bottom: 16px;
-}
-.calc-result-main { font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px; line-height: 1.2; }
-.calc-result-label { font-size: 13px; color: var(--text-muted); }
+/* ---- Form-based result card ---- */
+.calc-result-card { background: var(--result-bg); border: 1px solid var(--accent); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 16px; }
+.calc-result-main { font-size: 1.8rem; font-weight: 800; color: var(--accent); margin-bottom: 4px; line-height: 1.2; }
+.calc-result-label { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
+.calc-result-rows {}
 .calc-result-row { display: flex; justify-content: space-between; font-size: 14px; padding: 5px 0; border-bottom: 1px solid var(--border); }
 .calc-result-row:last-child { border-bottom: none; }
 .calc-result-row .label { color: var(--text-muted); }
 .calc-result-row .value { font-weight: 600; }
 
+/* ---- Investment calculator ---- */
+.invest-chart-wrap { position: relative; height: 260px; margin-bottom: 16px; }
+.invest-summary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.invest-stat { background: var(--result-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; }
+.invest-stat-val { font-size: 1.3rem; font-weight: 800; color: var(--accent); line-height: 1.2; margin-bottom: 2px; }
+.invest-stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600; }
+
 /* ---- Form controls ---- */
 .tool-controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; margin-bottom: 16px; }
 .control-group { display: flex; flex-direction: column; gap: 5px; }
-.control-group label { font-size: 12.5px; font-weight: 600; color: var(--text); }
-.control-group input[type="text"],
-.control-group input[type="number"],
-.control-group input[type="date"],
-.control-group select {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 7px 10px;
-  font-size: 14px;
-  font-family: var(--font);
-  color: var(--text);
-  background: var(--bg-white);
-  height: 34px;
-}
+.control-group label { font-size: 12px; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.4px; }
+.control-group input[type="text"], .control-group input[type="number"], .control-group input[type="date"], .control-group select { border: 1px solid var(--border); border-radius: var(--radius); padding: 7px 10px; font-size: 14px; font-family: var(--font); color: var(--text); background: var(--bg-white); height: 34px; }
 .control-group input[type="number"] { width: 110px; }
 .control-group input[type="date"]   { width: 160px; }
 .control-group select               { min-width: 140px; }
 .control-group input:focus, .control-group select:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent); }
 .control-full { width: 100%; }
-
 .check-group { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 .check-label { display: flex; align-items: center; gap: 6px; font-size: 13.5px; cursor: pointer; user-select: none; }
 .check-label input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
 
 /* ---- Buttons ---- */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 18px; border: 1px solid transparent; border-radius: var(--radius); font-size: 14px; font-weight: 500; font-family: var(--font); cursor: pointer; line-height: 1; white-space: nowrap; transition: background 0.1s, color 0.1s, border-color 0.1s; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 18px; border: 1px solid transparent; border-radius: var(--radius); font-size: 14px; font-weight: 600; font-family: var(--font); cursor: pointer; line-height: 1; white-space: nowrap; transition: background 0.1s, color 0.1s, border-color 0.1s; }
 .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
 .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
@@ -173,16 +135,25 @@ a:hover { color: var(--accent-hover); }
 .btn-sm { padding: 5px 12px; font-size: 13px; }
 .btn-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 
+/* ---- Range slider ---- */
+input[type="range"] { accent-color: var(--accent); cursor: pointer; width: 100%; }
+
 /* ---- Unit converter tabs ---- */
 .unit-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
 .unit-tab { padding: 5px 12px; font-size: 13px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-white); cursor: pointer; font-family: var(--font); }
 .unit-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
 .unit-tab:hover:not(.active) { background: var(--bg); }
-.unit-panel { display: none; }
-.unit-panel.active { display: block; }
+
+/* ---- Sub-tab patterns (discount, date, percentage) ---- */
+.perc-tabs, .disc-tabs, .dc-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.perc-tab, .disc-tab, .dc-tab { padding: 6px 14px; font-size: 13px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-white); cursor: pointer; font-family: var(--font); font-weight: 500; }
+.perc-tab.active, .disc-tab.active, .dc-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+.perc-tab:hover:not(.active), .disc-tab:hover:not(.active), .dc-tab:hover:not(.active) { background: var(--bg); }
+.perc-panel, .disc-panel, .dc-panel { display: none; }
+.perc-panel.active, .disc-panel.active, .dc-panel.active { display: block; }
 
 /* ---- Ad slots ---- */
-.ad-slot { display: flex; align-items: center; justify-content: center; min-height: 90px; border: 1px dashed var(--border); background: #f6f9fd; border-radius: var(--radius); margin-bottom: 20px; }
+.ad-slot { display: flex; align-items: center; justify-content: center; min-height: 90px; border: 1px dashed var(--border); background: #f5f8fd; border-radius: var(--radius); margin-bottom: 20px; }
 .ad-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #a8b8c8; }
 
 /* ---- Content blocks ---- */
@@ -190,29 +161,29 @@ a:hover { color: var(--accent-hover); }
 .content-block { padding: 20px 0; border-bottom: 1px solid var(--border); }
 .content-block:last-child { border-bottom: none; }
 .content-block h2 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
-.content-block p { color: var(--text); margin-bottom: 10px; }
+.content-block p { margin-bottom: 10px; }
 .content-block p:last-child { margin-bottom: 0; }
 .content-block ul, .content-block ol { padding-left: 20px; }
-.content-block ul li, .content-block ol li { margin-bottom: 5px; font-size: 15px; }
+.content-block ul li, .content-block ol li { margin-bottom: 5px; }
 .faq-section dt { font-weight: 600; margin-top: 14px; margin-bottom: 3px; }
 .faq-section dt:first-child { margin-top: 0; }
 .faq-section dd { color: var(--text-muted); margin-left: 0; }
 
 /* ---- Hub grid ---- */
 .hub-intro { margin-bottom: 24px; }
-.hub-intro h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }
+.hub-intro h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.3px; }
 .hub-intro p { color: var(--text-muted); max-width: 560px; }
 .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); gap: 12px; margin-bottom: 24px; }
 .tool-card { display: block; background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; text-decoration: none; color: var(--text); transition: border-color 0.1s, background 0.1s; }
 .tool-card:hover { border-color: var(--accent); background: var(--accent-light); color: var(--text); }
-.tool-card-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.tool-card-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
 .tool-card-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
 
 /* ---- Static pages ---- */
 .static-page { max-width: 680px; }
-.static-page h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: 16px; }
+.static-page h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.3px; }
 .static-page h2 { font-size: 1.05rem; font-weight: 700; margin: 20px 0 8px; }
-.static-page p { color: var(--text); margin-bottom: 12px; }
+.static-page p { margin-bottom: 12px; }
 .static-page ul { padding-left: 20px; margin-bottom: 12px; }
 .static-page ul li { margin-bottom: 5px; }
 .contact-form .control-group { margin-bottom: 14px; }
@@ -240,4 +211,5 @@ a:hover { color: var(--accent-hover); }
   .tools-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); }
   .footer-inner { flex-direction: column; align-items: flex-start; }
   .sci-grid { grid-template-columns: repeat(4, 1fr); }
+  .invest-summary-grid { grid-template-columns: repeat(2, 1fr); }
 }

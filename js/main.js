@@ -11,35 +11,34 @@
     });
     document.addEventListener('click', function (e) {
       if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && e.target !== toggle && !toggle.contains(e.target)) {
-        sidebar.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
+        sidebar.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false');
       }
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.focus();
+        sidebar.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); toggle.focus();
       }
     });
   }
   var page = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.sidebar-nav a').forEach(function (a) {
-    if (a.getAttribute('href') === page) {
-      a.classList.add('active');
-      a.setAttribute('aria-current', 'page');
-    }
+    if (a.getAttribute('href') === page) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); }
+  });
+  document.querySelectorAll('.advanced-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var panel = document.getElementById(btn.getAttribute('aria-controls') || 'adv-panel');
+      if (!panel) return;
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      panel.hidden = expanded;
+    });
   });
 })();
-
-/* ---- Shared calc utilities ---- */
 
 function showResult(cardEl, mainVal, label, rows) {
   if (!cardEl) return;
   cardEl.hidden = false;
-  var mainEl  = cardEl.querySelector('.calc-result-main');
-  var labelEl = cardEl.querySelector('.calc-result-label');
-  var rowsEl  = cardEl.querySelector('.calc-result-rows');
+  var mainEl = cardEl.querySelector('.calc-result-main'), labelEl = cardEl.querySelector('.calc-result-label'), rowsEl = cardEl.querySelector('.calc-result-rows');
   if (mainEl)  mainEl.textContent  = mainVal;
   if (labelEl) labelEl.textContent = label || '';
   if (rowsEl && rows) {
@@ -59,25 +58,11 @@ function fmtNum(n, decimals) {
 }
 
 function copyText(text, feedbackEl) {
-  var done = function () {
-    if (!feedbackEl) return;
-    feedbackEl.textContent = 'Copied!';
-    setTimeout(function () { feedbackEl.textContent = ''; }, 2000);
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(done).catch(function () { fallbackCopy(text, done); });
-  } else {
-    fallbackCopy(text, done);
-  }
+  var done = function () { if (!feedbackEl) return; feedbackEl.textContent = 'Copied!'; setTimeout(function () { feedbackEl.textContent = ''; }, 2000); };
+  if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done).catch(function () { fallbackCopy(text, done); }); }
+  else { fallbackCopy(text, done); }
 }
-
 function fallbackCopy(text, done) {
-  var ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.cssText = 'position:fixed;opacity:0;';
-  document.body.appendChild(ta);
-  ta.select();
-  try { document.execCommand('copy'); } catch(e) {}
-  document.body.removeChild(ta);
-  if (done) done();
+  var ta = document.createElement('textarea'); ta.value = text; ta.style.cssText = 'position:fixed;opacity:0;';
+  document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch(e) {} document.body.removeChild(ta); if (done) done();
 }
