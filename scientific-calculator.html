@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free online scientific calculator. Trig functions, logarithms, powers, square root, factorial, pi, and more. Deg/Rad toggle.">
+  <title>Scientific Calculator Online — CalcAnything</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Calc<span class="logo-accent">Anything</span></a>
+    <nav class="header-nav"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Calculators</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Calculator navigation">
+      <span class="sidebar-heading">Calculators</span>
+      <ul>
+        <li><a href="basic-calculator.html">Basic Calculator</a></li>
+        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+        <li><a href="age-calculator.html">Age Calculator</a></li>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="tip-calculator.html">Tip Calculator</a></li>
+        <li><a href="unit-converter.html">Unit Converter</a></li>
+        <li><a href="date-calculator.html">Date Calculator</a></li>
+        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+        <li><a href="discount-calculator.html">Discount Calculator</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="tool-header">
+      <h1>Scientific Calculator</h1>
+      <p class="tool-tagline">Trig, logarithms, powers, roots, and more. Keyboard supported.</p>
+    </div>
+    <section class="tool-section" aria-label="Scientific calculator">
+      <div class="sci-wrapper">
+        <div class="calc-mode-toggle">
+          <button id="deg-btn" class="active">DEG</button>
+          <button id="rad-btn">RAD</button>
+        </div>
+        <div class="calc-display-area" aria-live="polite">
+          <div class="calc-expr" id="calc-expr"></div>
+          <div class="calc-result-display" id="calc-result">0</div>
+        </div>
+        <div class="calc-grid sci-grid" role="group" aria-label="Scientific calculator buttons">
+          <button class="calc-btn fn" data-val="sin(">sin</button>
+          <button class="calc-btn fn" data-val="cos(">cos</button>
+          <button class="calc-btn fn" data-val="tan(">tan</button>
+          <button class="calc-btn fn" data-val="log(">log</button>
+          <button class="calc-btn fn" data-val="ln(">ln</button>
+
+          <button class="calc-btn fn" data-val="sqrt(">√</button>
+          <button class="calc-btn fn" data-val="x²">x²</button>
+          <button class="calc-btn fn" data-val="^">x^y</button>
+          <button class="calc-btn fn const" data-val="π">π</button>
+          <button class="calc-btn fn const" data-val="e">e</button>
+
+          <button class="calc-btn fn" data-val="1/x">1/x</button>
+          <button class="calc-btn fn" data-val="x!">x!</button>
+          <button class="calc-btn fn" data-val="abs(">|x|</button>
+          <button class="calc-btn" data-val="(">(</button>
+          <button class="calc-btn" data-val=")">)</button>
+
+          <button class="calc-btn clear" data-val="C">C</button>
+          <button class="calc-btn clear" data-val="⌫">⌫</button>
+          <button class="calc-btn op" data-val="%">%</button>
+          <button class="calc-btn op" data-val="/">÷</button>
+          <button class="calc-btn op" data-val="*">×</button>
+
+          <button class="calc-btn" data-val="7">7</button>
+          <button class="calc-btn" data-val="8">8</button>
+          <button class="calc-btn" data-val="9">9</button>
+          <button class="calc-btn op" data-val="-">−</button>
+          <button class="calc-btn op equals" data-val="=" style="grid-row:span 2;">=</button>
+
+          <button class="calc-btn" data-val="4">4</button>
+          <button class="calc-btn" data-val="5">5</button>
+          <button class="calc-btn" data-val="6">6</button>
+          <button class="calc-btn op" data-val="+">+</button>
+
+          <button class="calc-btn" data-val="1">1</button>
+          <button class="calc-btn" data-val="2">2</button>
+          <button class="calc-btn" data-val="3">3</button>
+          <button class="calc-btn" data-val="+/-">±</button>
+
+          <button class="calc-btn span2" data-val="0">0</button>
+          <button class="calc-btn" data-val=".">.</button>
+          <button class="calc-btn fn" data-val="+/-">±</button>
+        </div>
+      </div>
+      <p style="font-size:12.5px;color:var(--text-muted);margin-top:12px;">Keyboard supported. DEG/RAD affects trig functions.</p>
+    </section>
+    <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+    <div class="content-sections">
+      <section class="content-block">
+        <h2>About this calculator</h2>
+        <p>This scientific calculator supports trigonometric functions (sin, cos, tan), logarithms (log base 10, natural log), square root, powers, factorials, absolute value, and the constants π and e. Toggle between degree and radian mode for trig functions.</p>
+      </section>
+      <section class="content-block">
+        <h2>Function reference</h2>
+        <ul>
+          <li><strong>sin / cos / tan</strong> — trigonometric functions (use DEG/RAD toggle)</li>
+          <li><strong>log</strong> — base-10 logarithm &nbsp;|&nbsp; <strong>ln</strong> — natural logarithm</li>
+          <li><strong>√</strong> — square root &nbsp;|&nbsp; <strong>x²</strong> — square &nbsp;|&nbsp; <strong>x^y</strong> — power</li>
+          <li><strong>x!</strong> — factorial (integers 0–20) &nbsp;|&nbsp; <strong>|x|</strong> — absolute value</li>
+          <li><strong>π</strong> ≈ 3.14159… &nbsp;|&nbsp; <strong>e</strong> ≈ 2.71828…</li>
+        </ul>
+      </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+      <section class="content-block faq-section">
+        <h2>FAQ</h2>
+        <dl>
+          <dt>When should I use DEG vs RAD?</dt>
+          <dd>Use DEG if your angles are in degrees (e.g. sin(90°) = 1). Use RAD if your angles are in radians (e.g. sin(π/2) = 1).</dd>
+          <dt>How do I enter a power like 2^10?</dt>
+          <dd>Type 2, then click <strong>x^y</strong> (which inserts ^), then 10, then =.</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 CalcAnything</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/tools/scientific.js"></script>
+</body>
+</html>

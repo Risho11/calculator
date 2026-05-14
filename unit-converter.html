@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free unit converter. Convert length, weight, temperature, volume, area, speed, time, and data units instantly.">
+  <title>Unit Converter — CalcAnything</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Calc<span class="logo-accent">Anything</span></a>
+    <nav class="header-nav"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Calculators</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Calculator navigation">
+      <span class="sidebar-heading">Calculators</span>
+      <ul>
+        <li><a href="basic-calculator.html">Basic Calculator</a></li>
+        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+        <li><a href="age-calculator.html">Age Calculator</a></li>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="tip-calculator.html">Tip Calculator</a></li>
+        <li><a href="unit-converter.html">Unit Converter</a></li>
+        <li><a href="date-calculator.html">Date Calculator</a></li>
+        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+        <li><a href="discount-calculator.html">Discount Calculator</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="tool-header">
+      <h1>Unit Converter</h1>
+      <p class="tool-tagline">Length, weight, temperature, volume, area, speed, time, and data.</p>
+    </div>
+    <section class="tool-section" aria-label="Unit converter">
+      <div class="tool-controls">
+        <div class="control-group">
+          <label for="unit-cat">Category</label>
+          <select id="unit-cat">
+            <option value="length">Length</option>
+            <option value="weight">Weight / Mass</option>
+            <option value="temp">Temperature</option>
+            <option value="volume">Volume</option>
+            <option value="area">Area</option>
+            <option value="speed">Speed</option>
+            <option value="time">Time</option>
+            <option value="data">Data</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="unit-val">Value</label>
+          <input type="number" id="unit-val" value="1" step="any">
+        </div>
+        <div class="control-group">
+          <label for="unit-from">From</label>
+          <select id="unit-from"></select>
+        </div>
+        <div style="display:flex;align-items:flex-end;padding-bottom:4px;font-size:18px;color:var(--text-muted);">→</div>
+        <div class="control-group">
+          <label for="unit-to">To</label>
+          <select id="unit-to"></select>
+        </div>
+      </div>
+      <button class="btn btn-primary" id="calc-btn">Convert</button>
+      <div class="calc-result-card" id="unit-result" hidden style="margin-top:16px;">
+        <div class="calc-result-main"></div>
+        <div class="calc-result-label"></div>
+      </div>
+    </section>
+    <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+    <div class="content-sections">
+      <section class="content-block">
+        <h2>About this converter</h2>
+        <p>Select a category, enter your value, choose your source and target units, and click Convert. Results update automatically when you change units. Conversion results are shown to 8 significant figures.</p>
+      </section>
+      <section class="content-block">
+        <h2>Supported categories</h2>
+        <ul>
+          <li><strong>Length</strong> — meters, km, miles, yards, feet, inches, nautical miles, and more</li>
+          <li><strong>Weight</strong> — kg, grams, pounds, ounces, tons, stone</li>
+          <li><strong>Temperature</strong> — Celsius, Fahrenheit, Kelvin</li>
+          <li><strong>Volume</strong> — liters, ml, US gallons, cups, fluid oz, cubic meters</li>
+          <li><strong>Area</strong> — square meters, km², ft², acres, hectares</li>
+          <li><strong>Speed</strong> — m/s, km/h, mph, knots</li>
+          <li><strong>Time</strong> — seconds, minutes, hours, days, weeks, months, years</li>
+          <li><strong>Data</strong> — bytes, KB, MB, GB, TB, bits, kilobits, megabits</li>
+        </ul>
+      </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+      <section class="content-block faq-section">
+        <h2>FAQ</h2>
+        <dl>
+          <dt>Why is temperature conversion different from other categories?</dt>
+          <dd>Temperature uses offset formulas (not just multiplication), so Celsius → Fahrenheit requires (°C × 9/5) + 32, not a simple ratio.</dd>
+          <dt>How accurate are the conversions?</dt>
+          <dd>Results are accurate to 8 significant figures using standard conversion factors.</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 CalcAnything</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/tools/unit.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free online basic calculator. Add, subtract, multiply, and divide. Supports keyboard input. Fast and simple.">
+  <title>Basic Calculator Online — CalcAnything</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Calc<span class="logo-accent">Anything</span></a>
+    <nav class="header-nav"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Calculators</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Calculator navigation">
+      <span class="sidebar-heading">Calculators</span>
+      <ul>
+        <li><a href="basic-calculator.html">Basic Calculator</a></li>
+        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+        <li><a href="age-calculator.html">Age Calculator</a></li>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="tip-calculator.html">Tip Calculator</a></li>
+        <li><a href="unit-converter.html">Unit Converter</a></li>
+        <li><a href="date-calculator.html">Date Calculator</a></li>
+        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+        <li><a href="discount-calculator.html">Discount Calculator</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="tool-header">
+      <h1>Basic Calculator</h1>
+      <p class="tool-tagline">Four-function calculator with keyboard support.</p>
+    </div>
+    <section class="tool-section" aria-label="Basic calculator">
+      <div class="calc-wrapper">
+        <div class="calc-display-area" aria-live="polite">
+          <div class="calc-expr" id="calc-expr"></div>
+          <div class="calc-result-display" id="calc-result">0</div>
+        </div>
+        <div class="calc-grid" role="group" aria-label="Calculator buttons">
+          <button class="calc-btn clear" data-val="C">C</button>
+          <button class="calc-btn clear" data-val="CE">CE</button>
+          <button class="calc-btn op" data-val="%">%</button>
+          <button class="calc-btn op" data-val="/">÷</button>
+
+          <button class="calc-btn" data-val="7">7</button>
+          <button class="calc-btn" data-val="8">8</button>
+          <button class="calc-btn" data-val="9">9</button>
+          <button class="calc-btn op" data-val="*">×</button>
+
+          <button class="calc-btn" data-val="4">4</button>
+          <button class="calc-btn" data-val="5">5</button>
+          <button class="calc-btn" data-val="6">6</button>
+          <button class="calc-btn op" data-val="-">−</button>
+
+          <button class="calc-btn" data-val="1">1</button>
+          <button class="calc-btn" data-val="2">2</button>
+          <button class="calc-btn" data-val="3">3</button>
+          <button class="calc-btn op" data-val="+">+</button>
+
+          <button class="calc-btn" data-val="+/-">±</button>
+          <button class="calc-btn span2" data-val="0">0</button>
+          <button class="calc-btn" data-val=".">.</button>
+          <button class="calc-btn equals" data-val="=">=</button>
+        </div>
+      </div>
+      <p style="font-size:12.5px;color:var(--text-muted);margin-top:12px;">Keyboard supported: numbers, +, −, ×, ÷, Enter (=), Escape (C), Backspace.</p>
+    </section>
+    <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+    <div class="content-sections">
+      <section class="content-block">
+        <h2>About this calculator</h2>
+        <p>A straightforward four-function calculator supporting addition, subtraction, multiplication, and division. It also handles percentages and sign toggling. You can use your keyboard — number keys, operators, Enter for equals, and Escape to clear.</p>
+      </section>
+      <section class="content-block">
+        <h2>How to use it</h2>
+        <ol>
+          <li>Click buttons or use your keyboard to enter a calculation.</li>
+          <li>Press <strong>=</strong> or <strong>Enter</strong> to evaluate.</li>
+          <li>Press <strong>C</strong> or <strong>Escape</strong> to clear everything. <strong>CE</strong> clears only the last entry.</li>
+          <li><strong>±</strong> toggles the sign of the current number. <strong>%</strong> divides by 100.</li>
+        </ol>
+      </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+      <section class="content-block faq-section">
+        <h2>FAQ</h2>
+        <dl>
+          <dt>Does it support order of operations?</dt>
+          <dd>Yes. The expression is evaluated using standard JavaScript math rules, so multiplication and division are evaluated before addition and subtraction.</dd>
+          <dt>What does CE do vs C?</dt>
+          <dd>C clears the entire expression. CE removes only the last typed entry, similar to a backspace for the last number entered.</dd>
+          <dt>Can I use the keyboard?</dt>
+          <dd>Yes — number keys, +, -, *, /, Enter (for =), Escape (for C), and Backspace all work.</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 CalcAnything</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/tools/basic.js"></script>
+</body>
+</html>

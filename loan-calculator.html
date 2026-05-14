@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free loan and mortgage calculator. Calculate monthly payment, total interest, and total cost for any loan. Enter principal, rate, and term.">
+  <title>Loan Calculator — Monthly Payment — CalcAnything</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Calc<span class="logo-accent">Anything</span></a>
+    <nav class="header-nav"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Calculators</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Calculator navigation">
+      <span class="sidebar-heading">Calculators</span>
+      <ul>
+        <li><a href="basic-calculator.html">Basic Calculator</a></li>
+        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+        <li><a href="age-calculator.html">Age Calculator</a></li>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="tip-calculator.html">Tip Calculator</a></li>
+        <li><a href="unit-converter.html">Unit Converter</a></li>
+        <li><a href="date-calculator.html">Date Calculator</a></li>
+        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+        <li><a href="discount-calculator.html">Discount Calculator</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="tool-header">
+      <h1>Loan Calculator</h1>
+      <p class="tool-tagline">Monthly payment, total interest, and total cost for any loan.</p>
+    </div>
+    <section class="tool-section" aria-label="Loan calculator">
+      <div class="tool-controls">
+        <div class="control-group"><label for="loan-principal">Loan amount ($)</label><input type="number" id="loan-principal" value="10000" min="1" step="100"></div>
+        <div class="control-group"><label for="loan-rate">Annual interest rate (%)</label><input type="number" id="loan-rate" value="6.5" min="0" step="0.01"></div>
+        <div class="control-group"><label for="loan-term">Loan term</label><input type="number" id="loan-term" value="5" min="1"></div>
+        <div class="control-group"><label for="loan-term-unit">Term unit</label>
+          <select id="loan-term-unit">
+            <option value="years">Years</option>
+            <option value="months">Months</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-primary" id="calc-btn">Calculate</button>
+      <div class="calc-result-card" id="result-card" hidden style="margin-top:16px;">
+        <div class="calc-result-main"></div>
+        <div class="calc-result-label"></div>
+        <div class="calc-result-rows"></div>
+      </div>
+    </section>
+    <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+    <div class="content-sections">
+      <section class="content-block">
+        <h2>About this calculator</h2>
+        <p>This calculator uses the standard amortized loan formula to compute your monthly payment. It works for any fixed-rate loan: personal loans, car loans, mortgages, student loans, and more.</p>
+        <p>For a 0% interest loan, it simply divides the principal evenly across the term.</p>
+      </section>
+      <section class="content-block">
+        <h2>How to use it</h2>
+        <ol>
+          <li>Enter the <strong>loan amount</strong> (principal).</li>
+          <li>Enter the <strong>annual interest rate</strong>. For 0% financing, enter 0.</li>
+          <li>Enter the <strong>loan term</strong> and select years or months.</li>
+          <li>Click <strong>Calculate</strong>.</li>
+        </ol>
+      </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+      <section class="content-block faq-section">
+        <h2>FAQ</h2>
+        <dl>
+          <dt>Does this account for extra payments?</dt>
+          <dd>No. This is a standard amortization calculation for fixed monthly payments. Extra payments would reduce the effective term and total interest.</dd>
+          <dt>Does it include taxes and insurance?</dt>
+          <dd>No. For mortgages, taxes and insurance (PITI) would be added on top of the calculated principal and interest payment.</dd>
+          <dt>What formula does it use?</dt>
+          <dd>Standard amortization: M = P[r(1+r)^n] / [(1+r)^n − 1], where P = principal, r = monthly rate, n = number of payments.</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 CalcAnything</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/tools/loan.js"></script>
+</body>
+</html>

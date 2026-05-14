@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free discount calculator. Find sale price after percent off, what percent discount, or original price from sale price and discount.">
+  <title>Discount Calculator — Sale Price — CalcAnything</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .disc-tabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px; }
+    .disc-tab { padding:6px 14px; font-size:13px; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-white); cursor:pointer; font-family:var(--font); }
+    .disc-tab.active { background:var(--accent); color:white; border-color:var(--accent); }
+    .disc-tab:hover:not(.active) { background:var(--bg); }
+    .disc-panel { display:none; } .disc-panel.active { display:block; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Calc<span class="logo-accent">Anything</span></a>
+    <nav class="header-nav"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Calculators</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Calculator navigation">
+      <span class="sidebar-heading">Calculators</span>
+      <ul>
+        <li><a href="basic-calculator.html">Basic Calculator</a></li>
+        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+        <li><a href="age-calculator.html">Age Calculator</a></li>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="tip-calculator.html">Tip Calculator</a></li>
+        <li><a href="unit-converter.html">Unit Converter</a></li>
+        <li><a href="date-calculator.html">Date Calculator</a></li>
+        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+        <li><a href="discount-calculator.html">Discount Calculator</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="tool-header">
+      <h1>Discount Calculator</h1>
+      <p class="tool-tagline">Three ways to work out a discount — pick the one you need.</p>
+    </div>
+    <section class="tool-section" aria-label="Discount calculator">
+      <div class="disc-tabs">
+        <button class="disc-tab active" data-panel="disc-panel-1">Price after discount</button>
+        <button class="disc-tab" data-panel="disc-panel-2">What % off?</button>
+        <button class="disc-tab" data-panel="disc-panel-3">Original price</button>
+      </div>
+
+      <div class="disc-panel active" id="disc-panel-1">
+        <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:12px;">I know the original price and the % off. What is the sale price?</p>
+        <div class="tool-controls">
+          <div class="control-group"><label for="d1-orig">Original price ($)</label><input type="number" id="d1-orig" value="80" step="0.01" min="0"></div>
+          <div class="control-group"><label for="d1-pct">Discount (%)</label><input type="number" id="d1-pct" value="25" step="0.01" min="0" max="100"></div>
+        </div>
+        <button class="btn btn-primary" id="calc-1">Calculate</button>
+        <div class="calc-result-card" id="result-1" hidden style="margin-top:14px;"><div class="calc-result-main"></div><div class="calc-result-label"></div><div class="calc-result-rows"></div></div>
+      </div>
+
+      <div class="disc-panel" id="disc-panel-2">
+        <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:12px;">I know the original price and the sale price. What % off is it?</p>
+        <div class="tool-controls">
+          <div class="control-group"><label for="d2-orig">Original price ($)</label><input type="number" id="d2-orig" value="80" step="0.01" min="0"></div>
+          <div class="control-group"><label for="d2-sale">Sale price ($)</label><input type="number" id="d2-sale" value="60" step="0.01" min="0"></div>
+        </div>
+        <button class="btn btn-primary" id="calc-2">Calculate</button>
+        <div class="calc-result-card" id="result-2" hidden style="margin-top:14px;"><div class="calc-result-main"></div><div class="calc-result-label"></div><div class="calc-result-rows"></div></div>
+      </div>
+
+      <div class="disc-panel" id="disc-panel-3">
+        <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:12px;">I know the sale price and the % off. What was the original price?</p>
+        <div class="tool-controls">
+          <div class="control-group"><label for="d3-sale">Sale price ($)</label><input type="number" id="d3-sale" value="60" step="0.01" min="0"></div>
+          <div class="control-group"><label for="d3-pct">Discount (%)</label><input type="number" id="d3-pct" value="25" step="0.01" min="0" max="99.99"></div>
+        </div>
+        <button class="btn btn-primary" id="calc-3">Calculate</button>
+        <div class="calc-result-card" id="result-3" hidden style="margin-top:14px;"><div class="calc-result-main"></div><div class="calc-result-label"></div><div class="calc-result-rows"></div></div>
+      </div>
+    </section>
+    <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+    <div class="content-sections">
+      <section class="content-block">
+        <h2>About this calculator</h2>
+        <p>Three discount calculations depending on what you know. Use the first tab when shopping. Use the second tab to compare sale prices. Use the third tab when you see a sale price tagged but want to know the original.</p>
+      </section>
+      <section class="content-block">
+        <h2>Common uses</h2>
+        <ul>
+          <li>Verifying the final price of a sale item</li>
+          <li>Comparing discounts across different stores</li>
+          <li>Back-calculating original prices from clearance tags</li>
+          <li>Calculating coupon savings</li>
+        </ul>
+      </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+      <section class="content-block faq-section">
+        <h2>FAQ</h2>
+        <dl>
+          <dt>Does this include tax?</dt>
+          <dd>No. The calculator works on the price before tax. Add tax separately after you have the discounted price.</dd>
+          <dt>Can I use it for multiple discounts stacked?</dt>
+          <dd>Not directly in one step. For stacked discounts (e.g. 20% off then an extra 10% off), run two calculations sequentially.</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 CalcAnything</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/tools/discount.js"></script>
+</body>
+</html>

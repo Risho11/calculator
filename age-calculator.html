@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free age calculator. Calculate exact age in years, months, days, weeks, and total days from a date of birth. Find next birthday.">
+  <title>Age Calculator — CalcAnything</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Calc<span class="logo-accent">Anything</span></a>
+    <nav class="header-nav"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Calculators</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Calculator navigation">
+      <span class="sidebar-heading">Calculators</span>
+      <ul>
+        <li><a href="basic-calculator.html">Basic Calculator</a></li>
+        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+        <li><a href="age-calculator.html">Age Calculator</a></li>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="tip-calculator.html">Tip Calculator</a></li>
+        <li><a href="unit-converter.html">Unit Converter</a></li>
+        <li><a href="date-calculator.html">Date Calculator</a></li>
+        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+        <li><a href="discount-calculator.html">Discount Calculator</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="tool-header">
+      <h1>Age Calculator</h1>
+      <p class="tool-tagline">Exact age in years, months, days, weeks, and total days.</p>
+    </div>
+    <section class="tool-section" aria-label="Age calculator">
+      <div class="tool-controls">
+        <div class="control-group">
+          <label for="age-birth">Date of birth</label>
+          <input type="date" id="age-birth">
+        </div>
+        <div class="control-group">
+          <label for="age-asof">Age as of</label>
+          <input type="date" id="age-asof">
+        </div>
+      </div>
+      <button class="btn btn-primary" id="calc-btn">Calculate Age</button>
+      <div class="calc-result-card" id="result-card" hidden style="margin-top:16px;">
+        <div class="calc-result-main"></div>
+        <div class="calc-result-label"></div>
+        <div class="calc-result-rows"></div>
+      </div>
+    </section>
+    <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+    <div class="content-sections">
+      <section class="content-block">
+        <h2>About this calculator</h2>
+        <p>Enter a date of birth and an "as of" date (defaults to today) to see the exact age in multiple units. The result includes years, months, and days; total months; total weeks; total days; and days until the next birthday.</p>
+      </section>
+      <section class="content-block">
+        <h2>How to use it</h2>
+        <ol>
+          <li>Enter the <strong>date of birth</strong>.</li>
+          <li>The <em>Age as of</em> date defaults to today — leave it or change it to calculate age at a different point in time.</li>
+          <li>Click <strong>Calculate Age</strong>.</li>
+        </ol>
+      </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+      <section class="content-block">
+        <h2>Common uses</h2>
+        <ul>
+          <li>Verifying your exact age for official documents</li>
+          <li>Calculating age at a specific past or future date</li>
+          <li>Finding out how many days until a birthday</li>
+          <li>Age calculations for eligibility checks</li>
+        </ul>
+      </section>
+      <section class="content-block faq-section">
+        <h2>FAQ</h2>
+        <dl>
+          <dt>Can I calculate age at a past or future date?</dt>
+          <dd>Yes — change the "Age as of" field to any date, past or future.</dd>
+          <dt>How are months calculated?</dt>
+          <dd>Months are calculated calendar-accurately. For example, from January 31 to February 28 is one month, because February does not have a 31st.</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 CalcAnything</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/tools/age.js"></script>
+</body>
+</html>

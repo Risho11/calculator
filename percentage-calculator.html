@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free percentage calculator. What is X% of Y? What percentage is X of Y? Percentage change, and add/remove percent from a value.">
+  <title>Percentage Calculator — CalcAnything</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .perc-tabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px; }
+    .perc-tab { padding:6px 14px; font-size:13px; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-white); cursor:pointer; font-family:var(--font); }
+    .perc-tab.active { background:var(--accent); color:white; border-color:var(--accent); }
+    .perc-tab:hover:not(.active) { background:var(--bg); }
+    .perc-panel { display:none; } .perc-panel.active { display:block; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Calc<span class="logo-accent">Anything</span></a>
+    <nav class="header-nav"><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </div>
+</header>
+<button class="sidebar-toggle" id="sidebar-toggle-btn" aria-expanded="false" aria-controls="sidebar">&#9776; Calculators</button>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav class="sidebar-nav" aria-label="Calculator navigation">
+      <span class="sidebar-heading">Calculators</span>
+      <ul>
+        <li><a href="basic-calculator.html">Basic Calculator</a></li>
+        <li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+        <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+        <li><a href="age-calculator.html">Age Calculator</a></li>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="tip-calculator.html">Tip Calculator</a></li>
+        <li><a href="unit-converter.html">Unit Converter</a></li>
+        <li><a href="date-calculator.html">Date Calculator</a></li>
+        <li><a href="loan-calculator.html">Loan Calculator</a></li>
+        <li><a href="discount-calculator.html">Discount Calculator</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="tool-header">
+      <h1>Percentage Calculator</h1>
+      <p class="tool-tagline">Four ways to calculate percentages — pick the one you need.</p>
+    </div>
+    <section class="tool-section" aria-label="Percentage calculator">
+      <div class="perc-tabs">
+        <button class="perc-tab active" data-panel="p-panel-1">X% of Y</button>
+        <button class="perc-tab" data-panel="p-panel-2">X is what % of Y</button>
+        <button class="perc-tab" data-panel="p-panel-3">% Change</button>
+        <button class="perc-tab" data-panel="p-panel-4">Add / Remove %</button>
+      </div>
+
+      <div class="perc-panel active" id="p-panel-1">
+        <div class="tool-controls">
+          <div class="control-group"><label for="p1-pct">Percentage (%)</label><input type="number" id="p1-pct" value="20" step="any"></div>
+          <div style="display:flex;align-items:flex-end;padding-bottom:4px;font-size:14px;color:var(--text-muted);">of</div>
+          <div class="control-group"><label for="p1-of">Value</label><input type="number" id="p1-of" value="150" step="any"></div>
+        </div>
+        <button class="btn btn-primary" id="calc-1">Calculate</button>
+        <div class="calc-result-card" id="result-1" hidden style="margin-top:14px;">
+          <div class="calc-result-main"></div>
+          <div class="calc-result-label"></div>
+          <div class="calc-result-rows"></div>
+        </div>
+      </div>
+
+      <div class="perc-panel" id="p-panel-2">
+        <div class="tool-controls">
+          <div class="control-group"><label for="p2-x">Value</label><input type="number" id="p2-x" value="30" step="any"></div>
+          <div style="display:flex;align-items:flex-end;padding-bottom:4px;font-size:14px;color:var(--text-muted);">is what % of</div>
+          <div class="control-group"><label for="p2-y">Total</label><input type="number" id="p2-y" value="150" step="any"></div>
+        </div>
+        <button class="btn btn-primary" id="calc-2">Calculate</button>
+        <div class="calc-result-card" id="result-2" hidden style="margin-top:14px;">
+          <div class="calc-result-main"></div><div class="calc-result-label"></div><div class="calc-result-rows"></div>
+        </div>
+      </div>
+
+      <div class="perc-panel" id="p-panel-3">
+        <div class="tool-controls">
+          <div class="control-group"><label for="p3-from">From value</label><input type="number" id="p3-from" value="80" step="any"></div>
+          <div style="display:flex;align-items:flex-end;padding-bottom:4px;font-size:14px;color:var(--text-muted);">→</div>
+          <div class="control-group"><label for="p3-to">To value</label><input type="number" id="p3-to" value="100" step="any"></div>
+        </div>
+        <button class="btn btn-primary" id="calc-3">Calculate</button>
+        <div class="calc-result-card" id="result-3" hidden style="margin-top:14px;">
+          <div class="calc-result-main"></div><div class="calc-result-label"></div><div class="calc-result-rows"></div>
+        </div>
+      </div>
+
+      <div class="perc-panel" id="p-panel-4">
+        <div class="tool-controls">
+          <div class="control-group"><label for="p4-val">Value</label><input type="number" id="p4-val" value="200" step="any"></div>
+          <div class="control-group"><label for="p4-pct">Percentage (%)</label><input type="number" id="p4-pct" value="15" step="any"></div>
+          <div class="control-group" style="justify-content:flex-end;">
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="p4-mode" value="add" checked> Add</label>
+              <label class="check-label"><input type="radio" name="p4-mode" value="remove"> Remove</label>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="calc-4">Calculate</button>
+        <div class="calc-result-card" id="result-4" hidden style="margin-top:14px;">
+          <div class="calc-result-main"></div><div class="calc-result-label"></div><div class="calc-result-rows"></div>
+        </div>
+      </div>
+    </section>
+    <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+    <div class="content-sections">
+      <section class="content-block">
+        <h2>About this calculator</h2>
+        <p>Four common percentage calculations in one place. Switch between tabs depending on what you know and what you need to find.</p>
+      </section>
+      <section class="content-block">
+        <h2>Which tab to use</h2>
+        <ul>
+          <li><strong>X% of Y</strong> — "What is 20% of 150?" → 30</li>
+          <li><strong>X is what % of Y</strong> — "30 is what percent of 150?" → 20%</li>
+          <li><strong>% Change</strong> — "What is the % change from 80 to 100?" → 25% increase</li>
+          <li><strong>Add / Remove %</strong> — "Add 15% to 200" → 230, or "Remove 15% from 200" → 170</li>
+        </ul>
+      </section>
+      <div class="ad-slot" aria-label="Advertisement"><span class="ad-label">Advertisement</span></div>
+      <section class="content-block faq-section">
+        <h2>FAQ</h2>
+        <dl>
+          <dt>What is percentage change vs adding a percentage?</dt>
+          <dd>Percentage change measures the relative change between two values. Adding/removing a percentage applies that percentage directly to one value (e.g. a 15% tip or a 10% discount).</dd>
+          <dt>How do I calculate tax?</dt>
+          <dd>Use the <em>Add %</em> tab. Enter your pre-tax price as Value and your tax rate as Percentage.</dd>
+        </dl>
+      </section>
+    </div>
+  </main>
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2025 CalcAnything</span>
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="js/tools/percentage.js"></script>
+</body>
+</html>
