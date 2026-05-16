@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.calculatorprodigy.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/basic-calculator.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/scientific-calculator.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/percentage-calculator.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/age-calculator.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/bmi-calculator.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/tip-calculator.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/unit-converter.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/date-calculator.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/loan-calculator.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/discount-calculator.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/investment-calculator.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/about.html</loc><priority>0.4</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/contact.html</loc><priority>0.4</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/privacy.html</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.calculatorprodigy.com/terms.html</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+</urlset>
